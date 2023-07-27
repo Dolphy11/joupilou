@@ -1,0 +1,129 @@
+{% load static%}
+{% include "views/header.html" %}
+{% block content%}
+<style>
+    .btn-outline-info{
+        border-radius: 0px;
+    }
+    .btn-outline-danger{
+        border-radius: 0px;
+    }
+</style>
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+            <a href="{{'index'}}" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+                <i class="flaticon-043-teddy-bear"></i>
+                <span class="text-primary">Joupilou</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+                    <a href="{{'index'}}" class="nav-item nav-link active">Accueil</a>
+                    <a href="{{'clas'}}" class="nav-item nav-link">Classes</a>
+                    <a href="{{'team'}}" class="nav-item nav-link">Les enseignants</a>
+                    <a href="{{'gallery'}}" class="nav-item nav-link">Galerie</a>
+                    <a href="{{'about'}}" class="nav-item nav-link">A-propos</a>
+                    <a href="{{'contact'}}" class="nav-item nav-link">Contact</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Info Utile</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="{{'inscrit'}}" class="dropdown-item">Liste inscrit</a>
+                            <a href="{{'resultat'}}" class="dropdown-item">Resultat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+            <h3 class="display-3 font-weight-bold text-white">Liste des Inscrits</h3>
+            <div class="d-inline-flex text-white">
+                <p class="m-0"><a class="text-white" href="">Accueil</a></p>
+                <p class="m-0 px-2">/</p>
+                <p class="m-0">Liste des Inscrits</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- inscrit Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                    <main class="table"> 
+                        <section class="table__header">
+                            <div class="input-group">
+                                <input type="search" placeholder="Rechercher par...">
+                                <img src="{% static 'img/search.png'%}" alt="">
+                            </div>
+                        </section>
+                        <section class="table__body">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th> Nom  </th>
+                                        <th> Prenom </th>
+                                        <th> Sexe </th>
+                                        <th> Parent </th>
+                                        <th> Classes </th>
+                                        <th> Details </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for kid in all_child %}
+                                    <tr>
+                                            <td> {{ kid.nom }} </td>
+                                            <td> {{ kid.prenom }} </td>
+                                            <td> {{ kid.gender}} </td>
+                                            <td> {{ kid.parent_name }}</td>
+                                            <td> {{ kid.classes }}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal{{kid.id}}">
+                                                     + Info
+                                                </button>
+                                            </div>
+                                                <div class="modal fade" id="exampleModal{{kid.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Information sur L'enfant</h5>
+                                                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal" aria-label="Close">
+                                                            X
+                                                        </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <label for="">Nom: </label> {{ kid.nom }} <br>
+                                                            <label for="">Prenom: </label> {{ kid.prenom }} <br>
+                                                            <label for="">Parent: </label> {{kid.parent_name}} <br>
+                                                            <label for="">Tel. Parent: </label> {{kid.phone_parent}} <br>
+                                                            <label for="">Email Parent: </label> {{ kid.email_parent }} <br>
+                                                            <label for="">Date Inscrit: </label> {{ kid.created_at }} <br>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                       </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            
+                        </section>
+                    </main>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+</body>
+{% include "views/footer.html"%}
+{% endblock %}

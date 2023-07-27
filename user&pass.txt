@@ -1,0 +1,8 @@
+super user
+username : dolph
+password : Rodolph4904@
+
+user Group
+group (secretary)
+username : jaja12
+password : rodolph12

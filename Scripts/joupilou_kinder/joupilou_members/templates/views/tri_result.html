@@ -1,0 +1,23 @@
+<div id="result-table">
+    <section class="table__body">
+   <table>
+       <thead>
+        
+       </thead>
+       <tbody>
+        {% for result in all_note %}
+        <tr>
+            <td> {{ result.children }} </td>
+            <td> {{ result.Dessin}} </td>
+            <td> {{ result.Chant }}</td>
+            <td> {{ result.Ecriture }}</td>
+            <td> {{ result.classes }}</td>
+            <td> {{ result.Cumule }}</td>
+            <td style="color: {% if result.mention == 'Accepter' %}green{% else %}red{% endif %}"> {{ result.mention }}</td>
+        </tr>
+        {% endfor %}
+       </tbody>
+   </table>
+   
+</section>
+</div>

@@ -1,0 +1,155 @@
+{% extends "views/header.html" %}
+{% load static%}
+{% block content%}
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+            <a href="{{'index'}}" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+                <i class="flaticon-043-teddy-bear"></i>
+                <span class="text-primary">Joupilou</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+                    <a href="{{'index'}}" class="nav-item nav-link active">Accueil</a>
+                    <a href="{{'clas'}}" class="nav-item nav-link">Classes</a>
+                    <a href="{{'team'}}" class="nav-item nav-link">Les enseignants</a>
+                    <a href="{{'gallery'}}" class="nav-item nav-link">Galerie</a>
+                    <a href="{{'about'}}" class="nav-item nav-link">A-propos</a>
+                    <a href="{{'contact'}}" class="nav-item nav-link">Contact</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Info Utile</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="{{'inscrit'}}" class="dropdown-item">Liste inscrit</a>
+                            <a href="{{'resultat'}}" class="dropdown-item">Resultat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+            <h3 class="display-3 font-weight-bold text-white">Galerie</h3>
+            <div class="d-inline-flex text-white">
+                <p class="m-0"><a class="text-white" href="">Accueil</a></p>
+                <p class="m-0 px-2">/</p>
+                <p class="m-0">Galerie</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Gallery Start -->
+    <div class="container-fluid pt-5 pb-3">
+        <div class="container">
+            <div class="text-center pb-2">
+                <p class="section-title px-5"><span class="px-2">Notre galerie</span></p>
+                <h1 class="mb-4">La galerie de notre école pour enfants</h1>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center mb-2">
+                    <ul class="list-inline mb-4" id="portfolio-flters">
+                        <li class="btn btn-outline-primary m-1 active"  data-filter="*">Tout</li>
+                        <li class="btn btn-outline-primary m-1" data-filter=".first">Jeu</li>
+                        <li class="btn btn-outline-primary m-1" data-filter=".second">Dessin</li>
+                        <li class="btn btn-outline-primary m-1" data-filter=".third">Lecture</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row portfolio-container">
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid w-100" src="{% static 'img/portfolio-1.jpg'%}" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="{% static 'img/portfolio-1.jpg'%}" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid w-100" src="{% static 'img/portfolio-2.jpg'%}" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="{% static 'img/portfolio-2.jpg'%}" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid w-100" src="{% static 'img/portfolio-3.jpg'%}" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="{% static 'img/portfolio-3.jpg'%}" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid w-100" src="{% static 'img/portfolio-4.jpg'%}" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="{% static 'img/portfolio-4.jpg'%}" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid w-100" src="{% static 'img/portfolio-5.jpg'%}" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="{% static 'img/portfolio-5.jpg'%}" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid w-100" src="{% static 'img/portfolio-6.jpg'%}" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <a href="{% static 'img/portfolio-6.jpg'%}" data-lightbox="portfolio">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery End -->
+    <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
+        <div class="position-relative overflow-hidden mb-2">
+            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+        <div class="position-relative overflow-hidden mb-2">
+            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
+        <div class="position-relative overflow-hidden mb-2">
+            <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                
+            </div>
+        </div>
+    </div>
+</body>
+{% include "views/footer.html"%}
+{% endblock %}

@@ -1,0 +1,203 @@
+{% extends "views/header.html" %}
+{% load static%}
+{% block content%}
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+            <a href="{{'index'}}" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+                <i class="flaticon-043-teddy-bear"></i>
+                <span class="text-primary">Joupilou</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+                    <a href="{{'index'}}" class="nav-item nav-link active">Accueil</a>
+                    <a href="{{'clas'}}" class="nav-item nav-link">Classes</a>
+                    <a href="{{'team'}}" class="nav-item nav-link">Les enseignants</a>
+                    <a href="{{'gallery'}}" class="nav-item nav-link">Galerie</a>
+                    <a href="{{'about'}}" class="nav-item nav-link">A-propos</a>
+                    <a href="{{'contact'}}" class="nav-item nav-link">Contact</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Info Utile</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="{{'inscrit'}}" class="dropdown-item">Liste inscrit</a>
+                            <a href="{{'resultat'}}" class="dropdown-item">Resultat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+            <h3 class="display-3 font-weight-bold text-white">Nos Classes</h3>
+            <div class="d-inline-flex text-white">
+                <p class="m-0"><a class="text-white" href="">Accueil</a></p>
+                <p class="m-0 px-2">/</p>
+                <p class="m-0">Nos Classes</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Class Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <p class="section-title px-5"><span class="px-2">COURS POPULAIRES</span></p>
+                <h1 class="mb-4">Des cours pour vos enfants</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-5">
+                    <div class="card border-0 bg-light shadow-sm pb-2">
+                        <img class="card-img-top mb-2" src="{% static 'img/class-1.jpg'%}" alt="">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Petite Section</h4>
+                            <p class="card-text">La Petite Section est une étape importante dans le parcours éducatif des enfants. 
+                                C'est une période où ils commencent à s'adapter à l'environnement scolaire, 
+                                à développer leur indépendance et à acquérir de nouvelles compétences.</p>
+                        </div>
+                        <div class="card-footer bg-transparent py-4 px-5">
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Âge des enfants</strong></div>
+                                <div class="col-6 py-1">2 - 4 Ans</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Nombre total de places</strong></div>
+                                <div class="col-6 py-1">30 Places</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Horaire des cours</strong></div>
+                                <div class="col-6 py-1">08:00 - 10:00</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 py-1 text-right border-right"><strong>Frais de scolarité</strong></div>
+                                <div class="col-6 py-1">$300 / Mois</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="card border-0 bg-light shadow-sm pb-2">
+                        <img class="card-img-top mb-2" src="{% static 'img/class-2.jpg'%}" alt="">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Moyenne Section</h4>
+                            <p class="card-text"> La Moyenne Section marque une étape importante dans le parcours éducatif des enfants. 
+                                C'est une période de transition où ils continuent à développer
+                                 leurs compétences et à approfondir leurs connaissances scolaire plus structuré.</p>
+                        </div>
+                        <div class="card-footer bg-transparent py-4 px-5">
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Âge des enfants</strong></div>
+                                <div class="col-6 py-1">3 - 5 Ans</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Nombre total de places</strong></div>
+                                <div class="col-6 py-1">30 Places</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Horaire des cours</strong></div>
+                                <div class="col-6 py-1">08:00 - 10:00</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 py-1 text-right border-right"><strong>Frais de scolarité</strong></div>
+                                <div class="col-6 py-1">$280 / Mois</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="card border-0 bg-light shadow-sm pb-2">
+                        <img class="card-img-top mb-2" src="{% static 'img/class-3.jpg'%}" alt="">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Grande Section</h4>
+                            <p class="card-text">La Grande Section est une étape cruciale dans le parcours éducatif des enfants,
+                                car elle marque leur dernière année de l'éducation préscolaire avant de passer à l'école primaire. 
+                                C'est une période où les enfants se préparer à de nouveaux défis.</p>
+                        </div>
+                        <div class="card-footer bg-transparent py-4 px-5">
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Âge des enfants</strong></div>
+                                <div class="col-6 py-1">4 - 6 Ans</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Nombre total de places</strong></div>
+                                <div class="col-6 py-1">30 Places</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Horaire des cours</strong></div>
+                                <div class="col-6 py-1">08:00 - 10:00</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 py-1 text-right border-right"><strong>Frais de scolarité</strong></div>
+                                <div class="col-6 py-1">$270 / Mois</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Class End -->
+
+
+    <!-- Registration Start -->
+    <!-- <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <p class="section-title pr-5"><span class="pr-2">Book A Seat</span></p>
+                    <h1 class="mb-4">Book A Seat For Your Kid</h1>
+                    <p>Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos,
+                        ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
+                        dolor</p>
+                    <ul class="list-inline m-0">
+                        <li class="py-2"><i class="fa fa-check text-success mr-3"></i>Labore eos amet dolor amet diam</li>
+                        <li class="py-2"><i class="fa fa-check text-success mr-3"></i>Etsea et sit dolor amet ipsum</li>
+                        <li class="py-2"><i class="fa fa-check text-success mr-3"></i>Diam dolor diam elitripsum vero.</li>
+                    </ul>
+                    <a href="" class="btn btn-primary mt-4 py-2 px-4">Book Now</a>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card border-0">
+                        <div class="card-header bg-secondary text-center p-4">
+                            <h1 class="text-white m-0">Book A Seat</h1>
+                        </div>
+                        <div class="card-body rounded-bottom bg-primary p-5">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control border-0 p-4" placeholder="Your Name" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control border-0 p-4" placeholder="Your Email" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <select class="custom-select border-0 px-4" style="height: 47px;">
+                                        <option selected>Select A Class</option>
+                                        <option value="1">Class 1</option>
+                                        <option value="2">Class 1</option>
+                                        <option value="3">Class 1</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <button class="btn btn-secondary btn-block border-0 py-3" type="submit">Book Now</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Registration End -->
+</body>
+{% include "views/footer.html"%}
+{% endblock %}

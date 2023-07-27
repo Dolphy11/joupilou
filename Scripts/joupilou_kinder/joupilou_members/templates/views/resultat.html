@@ -1,0 +1,148 @@
+{% extends "views/header.html" %}
+{% load static%}
+{% block content%}
+<style>
+    .btn-outline-info{
+        border-radius: 0px;
+    }
+    .btn-outline-danger{
+        border-radius: 0px;
+    }
+</style>
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+            <a href="{{'index'}}" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+                <i class="flaticon-043-teddy-bear"></i>
+                <span class="text-primary">Joupilou</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+                    <a href="{{'index'}}" class="nav-item nav-link active">Accueil</a>
+                    <a href="{{'clas'}}" class="nav-item nav-link">Classes</a>
+                    <a href="{{'team'}}" class="nav-item nav-link">Les enseignants</a>
+                    <a href="{{'gallery'}}" class="nav-item nav-link">Galerie</a>
+                    <a href="{{'about'}}" class="nav-item nav-link">A-propos</a>
+                    <a href="{{'contact'}}" class="nav-item nav-link">Contact</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Info Utile</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="{{'inscrit'}}" class="dropdown-item">Liste inscrit</a>
+                            <a href="{{'resultat'}}" class="dropdown-item">Resultat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+            <h3 class="display-3 font-weight-bold text-white">Resultat</h3>
+            <div class="d-inline-flex text-white">
+                <p class="m-0"><a class="text-white" href="">Accueil</a></p>
+                <p class="m-0 px-2">/</p>
+                <p class="m-0">Resultat</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- resultat Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center">
+               <main class="table"> 
+                        <section class="table__header">
+                            <div class="input-group">
+                                <input type="search" placeholder="Rechercher par...">
+                                <img src="{% static 'img/search.png'%}" alt="">
+                            </div><div  style="margin-right: -400px;"><h3 style="color: aliceblue;"></h3></div>
+                            <form id="triForm" method="get">
+                                <section class="table__header">
+                                      <div class="cont">
+                                <div class="pane">
+                                    <label class="label">
+                                        <span>Tous</span>
+                                        <input id="left" class="input" name="radio" type="radio" checked="checked" >
+                                    </label>
+                                    <label class="label">
+                                        <span>Accepter</span>
+                                        <input id="middle" class="input" name="radio" type="radio" value="Accepter">
+                                    </label>
+                                    <label class="label">
+                                        <span>Refuser</span>
+                                        <input id="right" class="input" name="radio" type="radio"  value="Refuser">
+                                    </label>
+                                    <span class="selection"></span>
+                                </div>
+                            </div>
+                                </section>
+                            </form>  
+                        </section>
+                        <section class="table__body">
+                            <table id="resultTable">
+                                <thead>
+                                    <tr>
+                                        <th> Nom & Prenom </th>
+                                        <th> Dessin </th>
+                                        <th> Chant </th>
+                                        <th> Ecriture </th>
+                                        <th> Classes </th> 
+                                        <th> Moyenne </th>
+                                        <th> Mention </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for result in all_note|dictsortreversed:"Cumule" %}
+                                    <tr>
+                                            <td> {{ result.children }} </td>
+                                            <td> {{ result.Dessin}} </td>
+                                            <td> {{ result.Chant }}</td>
+                                            <td> {{ result.Ecriture }}</td>
+                                            <td> {{ result.classes }}</td>
+                                            <td> {{ result.Cumule }}</td>
+                                            <td style="color: {% if result.mention == 'Accepter' %}green{% else %}red{% endif %}" > {{ result.mention }}</td>
+                                       </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            
+                        </section>
+                    </main>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('input[name="radio"]').change(function () {
+            const selection = $(this).val();
+
+            $.ajax({
+                url: '{% url "vue_resultats" %}',
+                type: 'GET',
+                data: { 'radio': selection },
+                success: function (data) {
+                    $('#resultTable tbody').html(data);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Erreur AJAX:', error);
+                }
+            });
+        });
+    });
+</script>
+{% include "views/footer.html"%}
+{% endblock %}

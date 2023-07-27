@@ -1,0 +1,98 @@
+{% extends "views/header.html" %}
+{% load static%}
+{% block content%}
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+            <a href="{{'index'}}" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+                <i class="flaticon-043-teddy-bear"></i>
+                <span class="text-primary">Joupilou</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+                    <a href="{{'index'}}" class="nav-item nav-link active">Accueil</a>
+                    <a href="{{'clas'}}" class="nav-item nav-link">Classes</a>
+                    <a href="{{'team'}}" class="nav-item nav-link">Les enseignants</a>
+                    <a href="{{'gallery'}}" class="nav-item nav-link">Galerie</a>
+                    <a href="{{'about'}}" class="nav-item nav-link">A-propos</a>
+                    <a href="{{'contact'}}" class="nav-item nav-link">Contact</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Info Utile</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="{{'inscrit'}}" class="dropdown-item">Liste inscrit</a>
+                            <a href="{{'resultat'}}" class="dropdown-item">Resultat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+            <h3 class="display-3 font-weight-bold text-white">À propos de nous</h3>
+            <div class="d-inline-flex text-white">
+                <p class="m-0"><a class="text-white" href="">Accueil</a></p>
+                <p class="m-0 px-2">/</p>
+                <p class="m-0">À propos de nous</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <img class="img-fluid rounded mb-5 mb-lg-0" src="{% static 'img/about-1.jpg'%}" alt="">
+                </div>
+                <div class="col-lg-7">
+                    <p class="section-title pr-5"><span class="pr-2">Apprenez à nous connaître</span></p>
+                    <h1 class="mb-4">La meilleure école pour vos enfants</h1>
+                    <p>Nous sommes un centre d'apprentissage dédié à offrir une éducation de qualité aux enfants.
+                         Notre mission est d'inspirer et de nourrir la curiosité des enfants, 
+                         de favoriser leur développement global et de les préparer à un avenir prometteur.<br><br>
+                        Chez nous, nous croyons en une approche éducative holistique qui prend en compte les besoins 
+                        individuels de chaque enfant.
+                        Nous offrons un environnement d'apprentissage stimulant et sécurisé où les enfants peuvent explorer, 
+                        expérimenter et grandir à leur propre rythme.<br><br>
+                        Nos enseignants sont des professionnels qualifiés et passionnés qui s'engagent à fournir une éducation
+                        de haute qualité. Ils créent des programmes d'apprentissage interactifs et engageants qui favorisent le 
+                        développement des compétences académiques, sociales, émotionnelles et créatives des enfants.<br><br>
+                        Nous mettons également l'accent sur l'inclusion et la diversité, en créant un environnement où chaque enfant 
+                        est valorisé et respecté. Nous encourageons la collaboration, l'empathie et le respect mutuel afin de promouvoir
+                         des relations saines et positives entre les élèves.<br><br>
+                        En plus des programmes académiques, nous offrons également des activités extrascolaires telles que la musique, 
+                        la danse, les arts et travaux manuels, qui permettent aux enfants d'explorer leurs talents et leurs passions.<br><br>
+                        Nous sommes fiers de notre engagement envers l'éducation des enfants et nous nous efforçons constamment d'améliorer 
+                        et d'innover pour offrir la meilleure expérience d'apprentissage possible.<br><br>
+                        Rejoignez-nous dans notre mission de cultiver les esprits curieux, créatifs et confiants de la prochaine génération.</p>
+                    <div class="row pt-2 pb-4">
+                        <div class="col-6 col-md-4">
+                            <img class="img-fluid rounded" src="{% static 'img/about-2.jpg'%}" alt="">
+                        </div>
+                        <div class="col-6 col-md-8">
+                            <ul class="list-inline m-0">
+                                <li class="py-2 border-top border-bottom"><i class="fa fa-check text-primary mr-3"></i>Nouvelle approche de l'éducation des enfants</li>
+                                <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>Suivi et intégration</li>
+                                <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>Réflexion et évaluation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+</body>
+{% include "views/footer.html"%}
+{% endblock %}
