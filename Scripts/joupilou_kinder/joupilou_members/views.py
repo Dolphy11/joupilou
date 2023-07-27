@@ -1,9 +1,15 @@
+from telnetlib import LOGOUT
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from .models import *
 from .models import Message
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import logout
+from django.contrib.auth import authenticate, login as auth_login
+
 
 def index(request):
     template = loader.get_template('views/index.html')
@@ -21,7 +27,7 @@ def clas(request):
     template = loader.get_template('views/clas.html')
     return HttpResponse(template.render())
 
-def gallery(request):
+def gallery1(request):
     template = loader.get_template('views/gallery.html')
     return HttpResponse(template.render())
 
@@ -70,7 +76,7 @@ def vue_resultats(request):
     
     return render(request, 'views/resultat.html', {'all_note': all_note})
 
-def contact(request):
+def contact1(request):
     if request.method == 'POST':
         nom_prenom = request.POST.get('name')
         email = request.POST.get('email')
@@ -81,6 +87,41 @@ def contact(request):
         message_obj.save()
 
         messages.success(request, 'Message soumis avec succès et stocké dans la base de données !')
-        return redirect('contact')
-    template = loader.get_template('views/contact.html')
-    return HttpResponse(template.render())
+        return redirect('contact1')
+
+    return render(request, 'views/contact1.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        
+        if user is not None:
+            auth_login(request, user)  # Utilisation de la fonction auth_login
+            return redirect('/admin/')  # Redirection vers le portail d'administration
+        else:
+            # Gérer le cas d'identification invalide ici (par exemple, afficher un message d'erreur)
+            pass
+
+    return render(request, 'views/login.html')
+
+def logout_and_redirect(request):
+    logout(request)  # Utilisez correctement la fonction logout
+    return redirect('custom_login')
+
+def custom_login(request):
+    return render(request, 'views/login.html')
