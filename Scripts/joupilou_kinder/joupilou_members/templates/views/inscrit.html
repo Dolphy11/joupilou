@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav font-weight-bold mx-auto py-0">
                     <a href="{{'index'}}" class="nav-item nav-link active">Accueil</a>
-                    <a href="{{'clas'}}" class="nav-item nav-link">Classes</a>
+                    <a href="{{'clas'}}"  class="nav-item nav-link">Classes</a>
                     <a href="{{'team'}}" class="nav-item nav-link">Les enseignants</a>
                     <a href="{{'gallery1'}}" class="nav-item nav-link">Galerie</a>
                     <a href="{{'about'}}" class="nav-item nav-link">A-propos</a>
@@ -35,6 +35,8 @@
                             <a href="{{'resultat'}}" class="dropdown-item">Resultat</a>
                         </div>
                     </div>
+                </div>
+                <a href="{% url 'login' %}" class="btn btn-primary px-4">Se Connecter</a>
                 </div>
             </div>
         </nav>
@@ -77,10 +79,11 @@
                                         <th> Parent </th>
                                         <th> Classes </th>
                                         <th> Details </th>
+                                        <th> Date Ins. </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for kid in all_child %}
+                                    {% for kid in all_child  %}
                                     <tr>
                                             <td> {{ kid.nom }} </td>
                                             <td> {{ kid.prenom }} </td>
@@ -113,6 +116,7 @@
                                                     </div>
                                                 </div>
                                             </td>
+                                            <td> {{ kid.created_at }}</td>
                                        </tr>
                                     {% endfor %}
                                 </tbody>

@@ -14,64 +14,59 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav font-weight-bold mx-auto py-0">
-                    <a href="{{'index'}}" class="nav-item nav-link active">Accueil</a>
-                    <a href="{{'clas'}}" class="nav-item nav-link">Classes</a>
-                    <a href="{{'team'}}" class="nav-item nav-link">Les enseignants</a>
-                    <a href="{{'gallery1'}}" class="nav-item nav-link">Galerie</a>
-                    <a href="{{'about'}}" class="nav-item nav-link">A-propos</a>
-                    <a href="{{'contact1'}}" class="nav-item nav-link">Contact</a>
+                    <a href="{% url 'index' %}" class="nav-item nav-link active">Accueil</a>
+                    <a href="{% url 'clas' %}" class="nav-item nav-link">Classes</a>
+                    <a href="{% url 'team' %}" class="nav-item nav-link">Les enseignants</a>
+                    <a href="{% url 'gallery1' %}" class="nav-item nav-link">Galerie</a>
+                    <a href="{% url 'about' %}" class="nav-item nav-link">A-propos</a>
+                    <a href="{% url 'contact1' %}" class="nav-item nav-link">Contact</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Info Utile</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="{{'inscrit'}}" class="dropdown-item">Liste inscrit</a>
-                            <a href="{{'resultat'}}" class="dropdown-item">Resultat</a>
+                            <a href="{% url 'inscrit' %}" class="dropdown-item">Liste inscrit</a>
+                            <a href="{% url 'resultat' %}" class="dropdown-item">Resultat</a>
                         </div>
                     </div>
                 </div>
-                    <a href="{{'login'}}" class="btn btn-primary px-4">Se Connecter</a>
+                    <a href="{% url 'login' %}" class="btn btn-primary px-4">Se Connecter</a>
             </div>
         </nav>
     </div>
-    <!-- Navbar End -->
-
-
-    <!-- Header Start -->
-    <!-- <div class="container-fluid bg-primary mb-5">
-        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-            <h3 class="display-3 font-weight-bold text-white">À propos de nous</h3>
-            <div class="d-inline-flex text-white">
-                <p class="m-0"><a class="text-white" href="">Accueil</a></p>
-                <p class="m-0 px-2">/</p>
-                <p class="m-0">À propos de nous</p>
-            </div>
-        </div>
-    </div> -->
-    <!-- Header End -->
-
-
-    <!-- About Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" >
         <div class="container">
             <div class="row align-items-center">
                 <link rel="stylesheet" href="{% static 'css/log.css'%}">
 <section class="card-box">
   <div class="cont">
     <div class="left">
-        <form method="post" action="{{'login'}}">  <!-- Utilisation de l'URL renommée -->
+        {% if user.is_anonymous %}
+        <form method="post" action="{% url 'login' %}?next=/admin/">  <!-- Utilisation de l'URL renommée -->
             {% csrf_token %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
             <div class="input-block">
-                <input class="input" type="text" id="email" name="username" required="">
+                <input class="input" type="text" id="email" name="username" required>
                 <label for="email">Nom Utilisateur</label>
             </div>
             <div class="input-block">
-                <input class="input" type="password" id="pass" name="password" required="">
+                <input class="input" type="password" id="pass" name="password" required>
                 <label for="pass">Mot de Passe</label>
             </div>
             <div class="input-block">
-                <span class="forgot"><a href="#">Forgot Password?</a></span>
                 <button type="submit">Connecter</button>
             </div>
         </form>
+        {% else %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <p class="alert alert-warning"> Vous etes deja Connecter</p>
+        {% endif %}
         
     </div>
     <div class="right">

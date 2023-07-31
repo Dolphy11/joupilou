@@ -19,10 +19,6 @@ def about(request):
     template = loader.get_template('views/about.html')
     return HttpResponse(template.render())
 
-# def contact(request):
-#     template = loader.get_template('views/contact.html')
-#     return HttpResponse(template.render())
-
 def clas(request):
     template = loader.get_template('views/clas.html')
     return HttpResponse(template.render())
@@ -36,7 +32,7 @@ def team(request):
     return HttpResponse(template.render())
 
 def inscrit(request):
-    all_child = Children.objects.all()
+    all_child = Children.objects.all().order_by('-created_at')
     template = loader.get_template('views/inscrit.html')
     context = {
         'all_child': all_child,
@@ -91,37 +87,3 @@ def contact1(request):
 
     return render(request, 'views/contact1.html')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-def user_login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
-        
-        if user is not None:
-            auth_login(request, user)  # Utilisation de la fonction auth_login
-            return redirect('/admin/')  # Redirection vers le portail d'administration
-        else:
-            # Gérer le cas d'identification invalide ici (par exemple, afficher un message d'erreur)
-            pass
-
-    return render(request, 'views/login.html')
-
-def logout_and_redirect(request):
-    logout(request)  # Utilisez correctement la fonction logout
-    return redirect('custom_login')
-
-def custom_login(request):
-    return render(request, 'views/login.html')
